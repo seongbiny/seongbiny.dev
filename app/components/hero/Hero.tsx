@@ -4,113 +4,192 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-950 dark:to-zinc-900">
-      <div className="relative z-10 max-w-5xl px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1
-            className="mb-6 text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-7xl md:text-8xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Frontend
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Developer
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="mx-auto mb-12 max-w-2xl text-xl text-zinc-600 dark:text-zinc-400 sm:text-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            인터랙티브하고 아름다운 웹 경험을 만드는 프론트엔드 개발자입니다.
-          </motion.p>
-
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
+      <div className="relative z-10 w-full max-w-7xl px-6 py-32">
+        <div className="space-y-16">
+          {/* Main Title */}
           <motion.div
-            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="space-y-8"
+          >
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
+              >
+                FRONTEND
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
+              >
+                DEVELOPER
+              </motion.h1>
+            </div>
+          </motion.div>
+
+          {/* Info Grid */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="grid gap-12 pt-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {/* Name & Role */}
+            <div className="space-y-4 border-l-2 border-white pl-6">
+              <div>
+                <p className="text-sm font-medium uppercase tracking-wider text-zinc-400">
+                  Name
+                </p>
+                <h2 className="mt-2 text-2xl font-bold text-white">
+                  윤성빈
+                </h2>
+                <p className="text-lg text-zinc-400">Yun Seongbin</p>
+              </div>
+              <div>
+                <p className="text-sm font-medium uppercase tracking-wider text-zinc-400">
+                  Role
+                </p>
+                <p className="mt-2 text-lg text-white">
+                  프론트엔드 개발자
+                </p>
+                <p className="text-sm text-zinc-400">
+                  풀스택 개발자 지향
+                </p>
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div className="space-y-4 border-l-2 border-white pl-6">
+              <p className="text-sm font-medium uppercase tracking-wider text-zinc-400">
+                Contact
+              </p>
+              <div className="space-y-3">
+                <motion.a
+                  href="tel:010.3475.1013"
+                  className="group block text-white transition-all duration-300"
+                  whileHover={{ x: 4 }}
+                >
+                  <span className="text-sm text-zinc-400">Phone</span>
+                  <p className="mt-1 text-lg font-medium group-hover:text-zinc-300">
+                    010.3475.1013
+                  </p>
+                </motion.a>
+                <motion.a
+                  href="mailto:s30ngb1n@gmail.com"
+                  className="group block text-white transition-all duration-300"
+                  whileHover={{ x: 4 }}
+                >
+                  <span className="text-sm text-zinc-400">Email</span>
+                  <p className="mt-1 text-lg font-medium group-hover:text-zinc-300">
+                    s30ngb1n@gmail.com
+                  </p>
+                </motion.a>
+                <motion.a
+                  href="https://github.com/seongbiny"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block text-white transition-all duration-300"
+                  whileHover={{ x: 4 }}
+                >
+                  <span className="text-sm text-zinc-400">GitHub</span>
+                  <p className="mt-1 text-lg font-medium group-hover:text-zinc-300">
+                    @seongbiny
+                  </p>
+                </motion.a>
+              </div>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="space-y-4 border-l-2 border-white pl-6">
+              <p className="text-sm font-medium uppercase tracking-wider text-zinc-400">
+                Tech Stack
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'React Native', 'TypeScript', 'JavaScript', 'Next.js'].map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="cursor-default border border-white px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="flex flex-wrap gap-4 pt-8"
           >
-            <a
+            <motion.a
               href="#projects"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-zinc-900 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 dark:bg-zinc-50 dark:text-zinc-900"
+              className="group relative overflow-hidden border-2 border-white px-8 py-4 text-lg font-medium text-white transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10">프로젝트 보기</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </a>
-            <a
+              <motion.div
+                className="absolute inset-0 bg-white"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="absolute inset-0 z-10 flex items-center justify-center text-black opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                프로젝트 보기
+              </span>
+            </motion.a>
+
+            <motion.a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full border-2 border-zinc-900 px-8 py-4 font-medium text-zinc-900 transition-all duration-300 hover:scale-105 hover:bg-zinc-900 hover:text-white dark:border-zinc-50 dark:text-zinc-50 dark:hover:bg-zinc-50 dark:hover:text-zinc-900"
+              className="border-2 border-white px-8 py-4 text-lg font-medium text-white transition-all duration-300 hover:bg-white hover:text-black"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               연락하기
-            </a>
+            </motion.a>
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 1,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            repeatDelay: 0.5,
-          }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400">Scroll</span>
-            <svg
-              className="h-6 w-6 text-zinc-500 dark:text-zinc-400"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+      >
         <motion.div
-          className="absolute -left-1/4 -top-1/4 h-96 w-96 rounded-full bg-blue-500 opacity-10 blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-        <motion.div
-          className="absolute -bottom-1/4 -right-1/4 h-96 w-96 rounded-full bg-purple-500 opacity-10 blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-xs uppercase tracking-widest text-zinc-400">Scroll</span>
+          <div className="h-12 w-[1px] bg-zinc-600" />
+        </motion.div>
+      </motion.div>
+
+      {/* Background Grid */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="h-full w-full" style={{
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px'
+        }} />
       </div>
     </section>
   );
