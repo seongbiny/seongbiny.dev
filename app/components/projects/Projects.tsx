@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
@@ -18,14 +19,23 @@ const projects = [
       "HashRouter",
       "Localization",
     ],
-    period: "2025.08 - 2025.10",
+    period: "2024.08 - 2024.10",
     team: "Frontend Developer @ Genesisnest",
-    achievements: [
+    overview:
+      "아모레퍼시픽의 스마트 TV 전용 뷰티 서비스 MakeOn TV 앱 개발 프로젝트입니다. Tizen OS 환경에서 동작하는 TV 앱으로, 일반 웹/모바일과 달리 리모컨 조작, 포커스 네비게이션, 디바이스 제약을 고려한 UX 설계가 핵심이었습니다.",
+    role: [
+      "프론트엔드 개발 핵심 구성원",
       "전체 기능 중 60% 이상 화면 및 로직 직접 구현",
-      "스플래시 → 업데이트/점검 → 로그인 → 디바이스 선택 → 홈/리포트/마이/상품 상세까지 전체 사용자 진입 플로우 설계·구현",
+      "TV 환경에 맞는 앱 구조 및 사용자 여정 설계",
+    ],
+    achievements: [
+      "스플래시 → 업데이트/점검 → 로그인 → 디바이스 선택 → 홈/리포트/마이/상품 상세까지 전체 사용자 진입 플로우를 처음부터 끝까지 설계·구현",
       "TV 리모컨 기반 포커스 네비게이션 시스템 구현",
+      "리모컨 로그인 / QR 로그인 전면 구현",
       "HashRouter 전환, 파일 스킴·위젯 구조 등 Tizen OS 제약 대응",
-      "구버전 Tizen 에뮬레이터 및 실단말 QA 수행",
+      "React Query 기반 API 처리, 토큰 저장·검증·갱신 로직 구현",
+      "다국어(Localization), 전역 모달, 배너·비디오·튜토리얼 등 공통 기능 개발",
+      "구버전 Tizen 에뮬레이터 및 실단말 QA 수행, 포커스 이탈·레이아웃 오류 지속 개선",
     ],
     link: "#",
   },
@@ -35,13 +45,20 @@ const projects = [
     description:
       "현대·기아·제네시스 서비스 운영을 위한 Admin(BO)과 사용자 대상 App(FO)을 동시에 개발·운영한 실서비스 프로젝트입니다.",
     tags: ["React", "TypeScript", "React Query", "Admin UI"],
-    period: "2025.05 - 2025.08 / 2025.10 - 현재",
+    period: "2024.05 - 2024.08 / 2024.10 - 현재",
     team: "Frontend Developer @ Genesisnest",
+    overview:
+      "현대·기아·제네시스 서비스 운영을 위한 Admin(BO)과 사용자 대상 App(FO)을 동시에 개발·운영한 실서비스 프로젝트입니다.",
+    role: [
+      "BO/FO 프론트엔드 개발 및 운영 개선",
+      "정책 변경 및 신규 기능 대응",
+    ],
     achievements: [
-      "Admin 배너·팝업·SNS 관리, 앱 이용 가이드, 브랜드 스토리 관리",
+      "Admin 기능 개발 - 배너·팝업·SNS 관리, 앱 이용 가이드, 브랜드 스토리 관리",
       "운영자 UX 개선 - 검색·필터·전시 상태 유지 로직 개선",
       "현대 앱 쿠폰함 카테고리 통합",
       "기아 일렉링크 QR 포맷 변경 대응 (FE 적용 + 실단말 테스트)",
+      "기능 개발 후 테스트 케이스 작성 및 QA 수행",
     ],
     link: "#",
   },
@@ -51,8 +68,11 @@ const projects = [
     description:
       "라오스 기반 모빌리티 플랫폼으로, 택시 호출·퀵 서비스·물류(Express) 3개 서비스를 통합한 승객용 앱입니다.",
     tags: ["React Native", "TypeScript", "Redux", "CodePush", "FCM"],
-    period: "2022.07 - 2023.10",
+    period: "2023.07 - 2023.10",
     team: "Frontend Developer @ Coconutsilo",
+    overview:
+      "라오스 기반 모빌리티 플랫폼으로, 택시 호출·퀵 서비스·물류(Express) 3개 서비스를 통합한 승객용 앱입니다.",
+    role: ["프론트엔드 개발"],
     achievements: [
       "카메라·사진첩·위치·알림 등 권한 및 추적 플로우 설계",
       "Redux 기반 전역 상태 관리",
@@ -67,8 +87,11 @@ const projects = [
     description:
       "택시/화물 기사 전용 앱으로, 실시간 위치 추적과 채팅을 중심으로 한 기사 업무 지원 서비스입니다.",
     tags: ["React Native", "TypeScript", "Firebase", "Socket.io", "i18n"],
-    period: "2022.07 - 2023.10",
+    period: "2023.07 - 2023.10",
     team: "Lead Frontend Developer @ Coconutsilo (기여도 약 70%)",
+    overview:
+      "택시/화물 기사 전용 앱으로, 실시간 위치 추적과 채팅을 중심으로 한 기사 업무 지원 서비스입니다.",
+    role: ["프론트엔드 리드 (기여도 약 70%)"],
     achievements: [
       "Cloud Firebase DB에 클라이언트 직접 접근 구조 경험",
       "실시간 위치 추적 기능 구현",
@@ -84,9 +107,22 @@ export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
 
   return (
-    <section id="projects" ref={ref} className="relative bg-white py-32">
+    <>
+      <section id="projects" ref={ref} className="relative bg-white py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <motion.div
@@ -129,6 +165,7 @@ export default function Projects() {
               transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
+              onClick={() => handleProjectClick(project)}
               className="group relative cursor-pointer border-b border-black transition-all duration-500"
             >
               <div className="grid gap-8 py-12 md:grid-cols-12">
@@ -236,5 +273,13 @@ export default function Projects() {
         </div>
       </div>
     </section>
+
+    {/* Project Modal */}
+    <ProjectModal
+      project={selectedProject}
+      isOpen={isModalOpen}
+      onClose={handleCloseModal}
+    />
+    </>
   );
 }
