@@ -6,43 +6,20 @@ import { useRef } from 'react';
 
 const skills = [
   {
-    category: 'Frontend',
-    items: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'JavaScript (ES6+)',
-      'HTML5/CSS3',
-      'Tailwind CSS',
-      'styled-components',
-    ],
+    category: 'FRONTEND',
+    items: ['React', 'React Native', 'Next.js', 'TypeScript', 'JavaScript'],
   },
   {
-    category: 'Animation & Motion',
-    items: ['Framer Motion', 'GSAP', 'CSS Animations'],
+    category: 'STATE MANAGEMENT',
+    items: ['Redux', 'Context API', 'Zustand'],
   },
   {
-    category: 'Tools & Others',
-    items: ['Git', 'GitHub', 'Figma', 'Webpack', 'Vite', 'npm/yarn'],
+    category: 'STYLING',
+    items: ['Tailwind CSS', 'CSS-in-JS', 'SCSS'],
   },
   {
-    category: 'Currently Learning',
-    items: ['Three.js', 'WebGL', 'Web Performance Optimization'],
-  },
-];
-
-const experiences = [
-  {
-    title: 'Frontend Developer',
-    company: 'Company Name',
-    period: '2023 - Present',
-    description: '주요 업무 내용과 성과를 작성해주세요.',
-  },
-  {
-    title: 'Junior Frontend Developer',
-    company: 'Previous Company',
-    period: '2021 - 2023',
-    description: '이전 경력사항을 작성해주세요.',
+    category: 'TOOLS & OTHERS',
+    items: ['Git', 'AWS S3', 'Firebase', 'Framer Motion'],
   },
 ];
 
@@ -54,86 +31,68 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative bg-white py-24 dark:bg-zinc-950 sm:py-32"
+      className="relative bg-white py-32"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto max-w-2xl text-center"
+          className="mb-20"
         >
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
-            Skills & Experience
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            제가 사용하는 기술과 경험을 소개합니다.
-          </p>
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 100 }}
+              animate={isInView ? { y: 0 } : { y: 100 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="text-6xl font-bold text-black md:text-7xl lg:text-8xl"
+            >
+              SKILLS
+            </motion.h2>
+          </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-6 text-lg text-zinc-600"
+          >
+            제가 사용하는 기술 스택입니다.
+          </motion.p>
         </motion.div>
 
-        {/* Skills */}
-        <div className="mx-auto mt-16 max-w-7xl">
-          <h3 className="mb-8 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-            Technical Skills
-          </h3>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.category}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <h4 className="mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+        {/* Skills Grid */}
+        <div className="grid gap-px bg-black md:grid-cols-2">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+              className="group bg-white p-12 transition-all duration-500 hover:bg-black"
+            >
+              <div className="mb-8 flex items-center gap-4">
+                <div className="h-px w-12 bg-black transition-colors group-hover:bg-white" />
+                <h3 className="text-xl font-bold text-black transition-colors group-hover:text-white">
                   {skill.category}
-                </h4>
-                <ul className="space-y-2">
-                  {skill.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Experience */}
-        <div className="mx-auto mt-24 max-w-7xl">
-          <h3 className="mb-8 text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-            Work Experience
-          </h3>
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.title + exp.company}
-                initial={{ opacity: 0, x: -50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="relative border-l-2 border-zinc-200 pl-8 dark:border-zinc-800"
-              >
-                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full bg-blue-600 dark:bg-blue-400" />
-                <div className="mb-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h4 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
-                    {exp.title}
-                  </h4>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="mb-2 font-medium text-zinc-700 dark:text-zinc-300">
-                  {exp.company}
-                </p>
-                <p className="text-zinc-600 dark:text-zinc-400">{exp.description}</p>
-              </motion.div>
-            ))}
-          </div>
+                </h3>
+              </div>
+              <ul className="space-y-3">
+                {skill.items.map((item, idx) => (
+                  <motion.li
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 + idx * 0.05 }}
+                    className="flex items-center gap-3 text-lg text-zinc-700 transition-colors group-hover:text-zinc-300"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-black transition-colors group-hover:bg-white" />
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
