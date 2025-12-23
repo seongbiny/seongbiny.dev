@@ -1,17 +1,22 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+
+  // 스크롤에 따라 타이틀 위치와 크기 변경
+  const titleY = useTransform(scrollY, [0, 300], [0, -400]);
+  const titleScale = useTransform(scrollY, [0, 300], [1, 0.3]);
+  const titleOpacity = useTransform(scrollY, [0, 200, 300], [1, 0.5, 0]);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black">
       <div className="relative z-10 w-full max-w-7xl px-6 py-32">
         <div className="space-y-16">
-          {/* Main Title */}
+          {/* Main Title with Scroll Animation */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            style={{ y: titleY, scale: titleScale, opacity: titleOpacity }}
             className="space-y-8"
           >
             <div className="overflow-hidden">
@@ -21,7 +26,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
               >
-                FRONTEND
+                YUNEDEN
               </motion.h1>
             </div>
             <div className="overflow-hidden">
@@ -31,7 +36,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
               >
-                DEVELOPER
+                DEV
               </motion.h1>
             </div>
           </motion.div>
