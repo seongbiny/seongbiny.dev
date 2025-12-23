@@ -6,20 +6,12 @@ import { useRef } from 'react';
 
 const skills = [
   {
-    category: 'FRONTEND',
-    items: ['React', 'React Native', 'Next.js', 'TypeScript', 'JavaScript'],
+    category: 'MAIN',
+    items: ['React', 'TypeScript', 'JavaScript', 'React Native'],
   },
   {
-    category: 'STATE MANAGEMENT',
-    items: ['Redux', 'Context API', 'Zustand'],
-  },
-  {
-    category: 'STYLING',
-    items: ['Tailwind CSS', 'CSS-in-JS', 'SCSS'],
-  },
-  {
-    category: 'TOOLS & OTHERS',
-    items: ['Git', 'AWS S3', 'Firebase', 'Framer Motion'],
+    category: 'EXPERIENCE',
+    items: ['React Query', 'Localization / i18n', 'Admin UI', 'Tizen OS (TV App)', 'Firebase / Socket.io', 'PixiJS / Matter.js'],
   },
 ];
 
@@ -57,7 +49,7 @@ export default function Skills() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg text-zinc-600"
           >
-            제가 사용하는 기술 스택입니다.
+            특정 기술 하나보다 "디자인과 요구사항을 구현하는 능력"에 더 집중합니다.
           </motion.p>
         </motion.div>
 

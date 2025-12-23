@@ -56,7 +56,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg text-zinc-400"
           >
-            새로운 기회나 협업에 관심이 있으시다면 언제든 연락주세요.
+            저는 디자인을 이해하는 개발자이자, 실행으로 증명하는 프론트엔드 엔지니어입니다.
           </motion.p>
         </motion.div>
 
@@ -100,11 +100,11 @@ export default function Contact() {
             <div>
               <div className="mb-8 flex items-center gap-4">
                 <div className="h-px w-12 bg-white" />
-                <h3 className="text-2xl font-bold text-white">LET'S WORK TOGETHER</h3>
+                <h3 className="text-2xl font-bold text-white">JUST DO IT. HERE AND NOW.</h3>
               </div>
               <p className="text-lg leading-relaxed text-zinc-300">
-                새로운 프로젝트나 기회에 대해 이야기 나누고 싶으시다면,
-                이메일이나 전화로 편하게 연락주세요.
+                망설이지 않고 바로 만듭니다.<br />
+                지금 가능한 최선의 UX를 선택합니다.
               </p>
             </div>
 

@@ -1,85 +1,92 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
 
 const projects = [
   {
-    title: '에코야 얼스',
-    emoji: '♻️',
-    description: '재활용품 수거 신청, 기부, 친환경 챌린지 참여, 커뮤니티 활동 등으로 환경 보호에 기여가 가능하며 친환경 관련 콘텐츠 제공하는 매거진 운영 다양한 이벤트 응모 가능 및 사용자들이 쉽게 친환경적인 삶 실천을 지원하는 서비스',
-    tags: ['React', 'TypeScript', 'Atomic Design Pattern'],
-    period: '2024.04 ~ 2024.07',
-    team: 'BE 1명 / FE 2명 (기여도 10%)',
-    achievements: [
-      '팀내에서 BOS(Back Office System) 개발 담당',
-      'custom dropdown 컴포넌트 개발',
-      '이용약 단계별 사용을 이용한 filter 컴포넌트 개발',
+    title: "Amorepacific MakeOn TV",
+    emoji: "📺",
+    description:
+      "아모레퍼시픽의 스마트 TV 전용 뷰티 서비스 MakeOn TV 앱 개발 프로젝트입니다. Tizen OS 환경에서 동작하는 TV 앱으로, 리모컨 조작, 포커스 네비게이션, 디바이스 제약을 고려한 UX 설계가 핵심이었습니다.",
+    tags: [
+      "React",
+      "TypeScript",
+      "React Query",
+      "Tizen OS",
+      "HashRouter",
+      "Localization",
     ],
-    link: '#',
+    period: "2025.08 - 2025.10",
+    team: "Frontend Developer @ Genesisnest",
+    achievements: [
+      "전체 기능 중 60% 이상 화면 및 로직 직접 구현",
+      "스플래시 → 업데이트/점검 → 로그인 → 디바이스 선택 → 홈/리포트/마이/상품 상세까지 전체 사용자 진입 플로우 설계·구현",
+      "TV 리모컨 기반 포커스 네비게이션 시스템 구현",
+      "HashRouter 전환, 파일 스킴·위젯 구조 등 Tizen OS 제약 대응",
+      "구버전 Tizen 에뮬레이터 및 실단말 QA 수행",
+    ],
+    link: "#",
   },
   {
-    title: 'KOKKOK Move',
-    emoji: '🚕',
-    description: '라오스에서 택시 호출부터 화물 운송 의뢰가 가능한 앱. 택시 호출 서비스인 Move, 도심 내 픽 서비스인 KOKKOK, 도심 간 물류 서비스인 Express까지 총 3가지 서비스 제공',
-    tags: ['React Native', 'TypeScript', 'Redux'],
-    period: '2023.07 ~ 2023.10',
-    team: 'BE 2명 / FE 2명 (FE 기여도 40%)',
+    title: "Hyundai / Kia / Genesis Service Admin & App",
+    emoji: "🚗",
+    description:
+      "현대·기아·제네시스 서비스 운영을 위한 Admin(BO)과 사용자 대상 App(FO)을 동시에 개발·운영한 실서비스 프로젝트입니다.",
+    tags: ["React", "TypeScript", "React Query", "Admin UI"],
+    period: "2025.05 - 2025.08 / 2025.10 - 현재",
+    team: "Frontend Developer @ Genesisnest",
     achievements: [
-      '다양한 역할의 사람들과 소통하며 기획부터 개발, 배포까지 다수의 앱 서비스 경험',
-      '카메라, 사진첩, 위치 정보, 활동, 알림 등 앱 주석 투명성 사용 권한 설정 및 로직 구현',
-      '기존 화물 운송만 있던 앱에 택시 서비스 추가',
+      "Admin 배너·팝업·SNS 관리, 앱 이용 가이드, 브랜드 스토리 관리",
+      "운영자 UX 개선 - 검색·필터·전시 상태 유지 로직 개선",
+      "현대 앱 쿠폰함 카테고리 통합",
+      "기아 일렉링크 QR 포맷 변경 대응 (FE 적용 + 실단말 테스트)",
     ],
-    link: '#',
+    link: "#",
   },
   {
-    title: 'KOKKOK Hero',
-    emoji: '🚖',
-    description: 'KOKKOK Move 이용자에게 모빌리티 서비스를 제공하는 택시, 화물 운송 기사 전용 앱',
-    tags: ['React Native', 'TypeScript', '채팅서비스', '기사용_앱'],
-    period: '2023.07 ~ 2023.10',
-    team: 'BE 2명 / FE 2명 (FE 기여도 70%)',
+    title: "KOKKOK Move",
+    emoji: "🚕",
+    description:
+      "라오스 기반 모빌리티 플랫폼으로, 택시 호출·퀵 서비스·물류(Express) 3개 서비스를 통합한 승객용 앱입니다.",
+    tags: ["React Native", "TypeScript", "Redux", "CodePush", "FCM"],
+    period: "2022.07 - 2023.10",
+    team: "Frontend Developer @ Coconutsilo",
     achievements: [
-      '3개월 동안 기획, 디자인, 개발 프로세스를 거쳐 새로운 앱 성공적으로 런칭',
-      '서버를 통하지 않고 클라이언트에서 DB(Cloud Firebase)에 접근하는 전반적인 과정을 경험',
-      '프론트 기기로 블루투스 통신하여 송장 출력하는 기능 구현',
-      '팀 내 CodePush 도입',
-      '라이브러리를 이용한 실시간 위치 추적 기능 구현',
-      'FCM을 활용한 앱 푸시 알림 기능 구현',
-      'Socket 통신으로 실시간 채팅 기능 구현',
+      "카메라·사진첩·위치·알림 등 권한 및 추적 플로우 설계",
+      "Redux 기반 전역 상태 관리",
+      "CodePush 도입으로 긴급 배포 대응",
+      "광고 배너 캐러셀 리팩토링으로 운영 편의성 개선",
     ],
-    link: '#',
+    link: "#",
   },
   {
-    title: '트럭닥터',
-    emoji: '👨‍🔧',
-    description: '승용차 정비가 위주인 타 앱과 달리 트럭/화물차 정비 예약에 집중한 앱',
-    tags: ['React Native', 'TypeScript', 'AWS S3', 'Push 알림'],
-    period: '2022 ~ 2023',
-    team: 'BE2명 / FE 1명 (FE 기여도 100%)',
+    title: "KOKKOK Hero",
+    emoji: "🚖",
+    description:
+      "택시/화물 기사 전용 앱으로, 실시간 위치 추적과 채팅을 중심으로 한 기사 업무 지원 서비스입니다.",
+    tags: ["React Native", "TypeScript", "Firebase", "Socket.io", "i18n"],
+    period: "2022.07 - 2023.10",
+    team: "Lead Frontend Developer @ Coconutsilo (기여도 약 70%)",
     achievements: [
-      '안드로이드 APK를 추출하여 실기기에서 테스트 및 iOS testFlight로 테스트 및 배포 경험',
-      '해당 게시글에 대해 유저 정보를 포함한 앱 주석 투명성 댓글 작성, 본인이 작성한 댓글 삭제 기능 구현',
-      '게시글 신고, 유저 신고, 댓글 신고 기능 구현',
-      'JavaScript → TypeScript 마이그레이션',
-      '커뮤니티 CRUD 기능 리팩토링',
+      "Cloud Firebase DB에 클라이언트 직접 접근 구조 경험",
+      "실시간 위치 추적 기능 구현",
+      "Socket.io 기반 채팅 기능 구현",
+      "다국어 자동 번역 및 프롬프트 처리",
+      "블루투스 송장 출력 기능 개발",
     ],
-    link: '#',
+    link: "#",
   },
 ];
 
 export default function Projects() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      className="relative bg-white py-32"
-    >
+    <section id="projects" ref={ref} className="relative bg-white py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <motion.div
@@ -92,7 +99,11 @@ export default function Projects() {
             <motion.h2
               initial={{ y: 100 }}
               animate={isInView ? { y: 0 } : { y: 100 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="text-6xl font-bold text-black md:text-7xl lg:text-8xl"
             >
               PROJECTS
@@ -125,7 +136,7 @@ export default function Projects() {
                 <div className="md:col-span-5">
                   <div className="flex items-start gap-6">
                     <span className="text-4xl font-bold text-zinc-300 transition-all duration-500 group-hover:text-black">
-                      {String(index + 1).padStart(2, '0')}
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                     <div className="flex-1">
                       <div className="mb-4 flex items-center gap-4">
@@ -156,18 +167,24 @@ export default function Projects() {
 
                   {/* Achievements */}
                   <div className="mb-6 space-y-2">
-                    {project.achievements.slice(0, 3).map((achievement, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={hoveredIndex === index ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                        transition={{ duration: 0.3, delay: idx * 0.1 }}
-                        className="flex items-start gap-2 text-sm text-zinc-600"
-                      >
-                        <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-black" />
-                        <span>{achievement}</span>
-                      </motion.div>
-                    ))}
+                    {project.achievements
+                      .slice(0, 3)
+                      .map((achievement, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={
+                            hoveredIndex === index
+                              ? { opacity: 1, x: 0 }
+                              : { opacity: 0, x: -20 }
+                          }
+                          transition={{ duration: 0.3, delay: idx * 0.1 }}
+                          className="flex items-start gap-2 text-sm text-zinc-600"
+                        >
+                          <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-black" />
+                          <span>{achievement}</span>
+                        </motion.div>
+                      ))}
                   </div>
 
                   {/* Tags */}
@@ -195,11 +212,22 @@ export default function Projects() {
               {/* Arrow */}
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: hoveredIndex === index ? 1 : 0, x: hoveredIndex === index ? 0 : -10 }}
+                animate={{
+                  opacity: hoveredIndex === index ? 1 : 0,
+                  x: hoveredIndex === index ? 0 : -10,
+                }}
                 transition={{ duration: 0.3 }}
                 className="absolute right-8 top-1/2 -translate-y-1/2"
               >
-                <svg className="h-8 w-8" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-8 w-8"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </motion.div>

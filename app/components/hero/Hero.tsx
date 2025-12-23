@@ -19,25 +19,56 @@ export default function Hero() {
             style={{ y: titleY, scale: titleScale, opacity: titleOpacity }}
             className="space-y-8"
           >
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-8">
+              <motion.p
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="text-sm font-medium uppercase tracking-widest text-zinc-400 md:text-base"
+              >
+                Just do it. Here and now.
+              </motion.p>
+            </div>
+            <div className="overflow-hidden mb-4">
               <motion.h1
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
+                className="text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl lg:text-8xl"
               >
-                YUNEDEN
+                디자인 감각으로
               </motion.h1>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-4">
               <motion.h1
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="text-7xl font-bold leading-tight tracking-tight text-white md:text-8xl lg:text-9xl"
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl lg:text-8xl"
               >
-                DEV
+                사용자 경험을 구현하는
               </motion.h1>
+            </div>
+            <div className="overflow-hidden mb-8">
+              <motion.h2
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="text-4xl font-light leading-tight tracking-tight text-zinc-300 md:text-6xl lg:text-7xl"
+              >
+                Creative Frontend Engineer.
+              </motion.h2>
+            </div>
+            <div className="overflow-hidden">
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-2 text-lg text-zinc-300 md:text-xl"
+              >
+                <p>망설이지 않고 바로 만듭니다.</p>
+                <p>지금 가능한 최선의 UX를 선택합니다.</p>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -64,10 +95,10 @@ export default function Hero() {
                   Role
                 </p>
                 <p className="mt-2 text-lg text-white">
-                  프론트엔드 개발자
+                  Creative Frontend Engineer
                 </p>
                 <p className="text-sm text-zinc-400">
-                  풀스택 개발자 지향
+                  디자인과 개발의 경계에서 가장 편안한 개발자
                 </p>
               </div>
             </div>
@@ -119,7 +150,7 @@ export default function Hero() {
                 Tech Stack
               </p>
               <div className="flex flex-wrap gap-2">
-                {['React', 'React Native', 'TypeScript', 'JavaScript', 'Next.js'].map((tech, index) => (
+                {['React', 'TypeScript', 'React Native', 'JavaScript'].map((tech, index) => (
                   <motion.span
                     key={tech}
                     initial={{ opacity: 0, scale: 0.8 }}

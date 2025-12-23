@@ -38,7 +38,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mt-6 text-lg text-zinc-400"
           >
-            사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.
+            디자인과 개발의 경계에서 가장 편안한 개발자입니다.
           </motion.p>
         </motion.div>
 
@@ -154,91 +154,96 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="space-y-16"
           >
-            {/* What I Do */}
+            {/* What I Care About */}
             <div>
               <div className="mb-8 flex items-center gap-4">
                 <div className="h-px w-12 bg-white" />
-                <h3 className="text-2xl font-bold text-white">WHAT I DO</h3>
+                <h3 className="text-2xl font-bold text-white">WHAT I CARE ABOUT</h3>
               </div>
-              <p className="text-lg leading-relaxed text-zinc-300">
-                React와 React Native를 활용하여 웹과 모바일 애플리케이션을 개발합니다.
-                사용자 경험을 최우선으로 생각하며, 인터랙티브하고 성능이 뛰어난
-                UI/UX 구현에 집중합니다.
-              </p>
+              <div className="space-y-6 text-zinc-300">
+                <div className="border-l-2 border-white pl-6">
+                  <p className="mb-3 text-lg font-semibold text-white">Pixel-perfect UI</p>
+                  <p className="text-base leading-relaxed">Figma 기준과 실제 결과물의 차이를 최소화</p>
+                </div>
+                <div className="border-l-2 border-white pl-6">
+                  <p className="mb-3 text-lg font-semibold text-white">UX 중심 사고</p>
+                  <p className="text-base leading-relaxed">"이 기능을 사용자가 왜, 언제, 어떻게 쓸까?"</p>
+                </div>
+                <div className="border-l-2 border-white pl-6">
+                  <p className="mb-3 text-lg font-semibold text-white">실행력</p>
+                  <p className="text-base leading-relaxed">아이디어 → 프로토타입 → 개선의 빠른 사이클</p>
+                </div>
+                <div className="border-l-2 border-white pl-6">
+                  <p className="mb-3 text-lg font-semibold text-white">신뢰감 있는 결과물</p>
+                  <p className="text-base leading-relaxed">QA, 실단말 테스트까지 책임지는 태도</p>
+                </div>
+              </div>
             </div>
 
-            {/* Skills */}
+            {/* Philosophy */}
             <div>
               <div className="mb-8 flex items-center gap-4">
                 <div className="h-px w-12 bg-white" />
-                <h3 className="text-2xl font-bold text-white">SKILLS</h3>
+                <h3 className="text-2xl font-bold text-white">PHILOSOPHY</h3>
               </div>
-              <div className="space-y-6">
-                {[
-                  { category: 'Frontend', skills: ['React', 'React Native', 'Next.js', 'TypeScript', 'JavaScript'] },
-                  { category: 'State Management', skills: ['Redux', 'Context API'] },
-                  { category: 'Styling', skills: ['Tailwind CSS', 'CSS-in-JS'] },
-                  { category: 'Tools', skills: ['Git', 'AWS S3', 'Firebase'] },
-                ].map((group, index) => (
-                  <motion.div
-                    key={group.category}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  >
-                    <p className="mb-3 text-sm font-medium uppercase tracking-wider text-zinc-500">
-                      {group.category}
+              <div className="space-y-6 text-zinc-300">
+                <div className="flex items-start gap-4">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-white" />
+                  <div>
+                    <p className="text-lg leading-relaxed">
+                      디자이너의 의도를 "대충 비슷하게" 구현하지 않습니다.
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {group.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="border border-white px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-black"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
+                    <p className="mt-2 text-base leading-relaxed text-white">
+                      → <strong>최대한 동일하게</strong>, 그리고 <strong>사용자 경험이 더 좋아지도록</strong> 만듭니다.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-white" />
+                  <div>
+                    <p className="text-lg leading-relaxed">
+                      화면을 만드는 개발이 아니라
+                    </p>
+                    <p className="mt-2 text-base leading-relaxed text-white">
+                      <strong>사용자가 실제로 겪는 흐름과 감각</strong>을 설계합니다.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-white" />
+                  <div>
+                    <p className="text-lg leading-relaxed">
+                      고민이 길어지면 실행력이 떨어진다고 믿습니다.
+                    </p>
+                    <p className="mt-2 text-base leading-relaxed text-white">
+                      그래서 항상 <strong>Here and now</strong>, 지금 만들 수 있는 결과부터 만듭니다.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Goals */}
+            {/* Work Style */}
             <div>
               <div className="mb-8 flex items-center gap-4">
                 <div className="h-px w-12 bg-white" />
-                <h3 className="text-2xl font-bold text-white">GOALS</h3>
-              </div>
-              <p className="text-lg leading-relaxed text-zinc-300">
-                프론트엔드에서 시작하여 <span className="font-bold text-white">풀스택 개발자로 성장</span>하는 것이 목표입니다.
-                백엔드 기술을 학습하며, 전체 시스템을 이해하고 구축할 수 있는
-                개발자가 되기 위해 노력하고 있습니다.
-              </p>
-            </div>
-
-            {/* Interests */}
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <div className="h-px w-12 bg-white" />
-                <h3 className="text-2xl font-bold text-white">INTERESTS</h3>
+                <h3 className="text-2xl font-bold text-white">WORK STYLE</h3>
               </div>
               <ul className="space-y-3">
                 {[
-                  '인터랙티브 웹 애니메이션',
-                  '성능 최적화',
-                  '크로스 플랫폼 개발',
-                  '타입 안정성',
-                ].map((interest, index) => (
+                  '망설이기보다 일단 만들고, 빠르게 개선',
+                  '디자이너와의 커뮤니케이션을 개발의 일부로 생각',
+                  '"이게 사용자 입장에서 편한가?"를 항상 먼저 질문',
+                ].map((style, index) => (
                   <motion.li
-                    key={interest}
+                    key={style}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                     transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
                     className="flex items-center gap-3 text-lg text-zinc-300"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                    {interest}
+                    {style}
                   </motion.li>
                 ))}
               </ul>
